@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<head>
+    <title>html_java_script_4</title>
+    <style>
+        #makanan {
+            display: block;
+        }
+        #minuman {
+            display: none;
+        }
+        #switch-list {
+            color: white;
+            background-color: rgba(0, 68, 255, 0.952);
+        }
+        #switch-list:hover {
+            color: white;
+            background-color: greenyellow;
+        }
+        #bag1 {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+    </style>
+</head>
+    <body>
+        <div id="bag1">
+            <p>Lorem Ipsum</p>
+        </div>
+        <div id="bag2">
+            <ul id="makanan">
+                <li>nasi pecel</li>
+                <li>nasi goreng</li>
+            </ul>
+            <ul id="minuman">
+                <li>jus alpukat</li>
+                <li>jus mangga</li>
+            </ul>
+            <button id="switch-list">Switch</button>
+            <button id="warna">Ganti Warna</button>
+            <input id="value1" type="text" value="5">
+            <input id="value2" type="text" value="6">
+            <button id="kali">Kali Angka</button>
+
+        </div>
+
+        <script>
+            var btnSwitch = document.body.children[1].children[2];
+            var makanan = document.body.children[1].children[0];
+            var minuman = document.body.children[1].children[1];
+
+            btnSwitch.addEventListener("click", function(e){
+                if (makanan.style.display!="none") {
+                    makanan.style.display="none";
+                    minuman.style.display="block";
+                } else {
+                    minuman.style.display="none";
+                    makanan.style.display="block";
+                }
+            });
+
+            var btnChange = document.getElementById("warna");
+            btnChange.addEventListener("click", function(e){
+                var bag1 = document.getElementById("bag1");
+                switch (bag1.style.color) {
+                    case "red":
+                        bag1.style.color="green";
+                        break;
+                    case "green":
+                        bag1.style.color="blue";
+                        break;
+                    case "blue":
+                        bag1.style.color="purple";
+                        break;
+                    default:
+                        bag1.style.color="red";
+                        break;
+                }
+            });
+
+            var btnMultiply=document.getElementById("kali");
+            var inputValue1=document.getElementById("value1");
+            var inputValue2=document.getElementById("value2");
+
+            btnMultiply.addEventListener("click", function(e){
+                var val1=inputValue1.value;
+                var val2=inputValue2.value;
+                if (isNaN(val1) || isNaN(val2)) {
+                    alert("Salah Goblok");
+                } else {
+                    alert(val1+"X"+val2+" = "+(val1*val2).toFixed(2));
+                }
+            });
+        </script>
+    </body>
+</html>
